@@ -1,0 +1,236 @@
+Q.1) 
+(A).Write n python program to Plot 2D X-axis and Y-axis black color and  in the
+ same diagram plot green triangle with vertices [5,4],[7,4],[6,6]
+
+
+import matplotlib.pyplot as plt 
+triangle_vertices = [[5, 4], [7, 4], [6, 6]] 
+x = [vertex[0] for vertex in triangle_vertices] 
+y = [vertex[1] for vertex in triangle_vertices] 
+plt.axhline(0, color='black') 
+plt.axvline(0, color='black') 
+plt.plot(x + [x[0]], y + [y[0]], 'g') 
+plt.xlim(4, 8) 
+plt.ylim(3, 7) 
+plt.xlabel('X-axis') 
+plt.ylabel('Y-axis')  
+plt.show() 
+
+
+(B).Write n program in python to rotate the point. through YZ-plane in 
+anticlockwise direction. (Rotation through Y-axis by an angle of 90°.)
+
+
+import math 
+import numpy as np 
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D 
+def rotate_yz_plane(point): 
+x, y, z = point 
+new_y = y * math.cos(math.radians(90)) - z * math.sin(math.radians(90)) 
+new_z = y * math.sin(math.radians(90)) + z * math.cos(math.radians(90)) 
+return [x, new_y, new_z] 
+point = [1, 2, 3] 
+rotated_point = rotate_yz_plane(point) 
+x_original, y_original, z_original = point 
+x_rotated, y_rotated, z_rotated = rotated_point 
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d') 
+ax.scatter(x_original, y_original, z_original, color='red', label='Original Point') 
+ax.scatter(x_rotated, y_rotated, z_rotated, color='blue', label='Rotated Point') 
+ax.set_xlabel('X') 
+ax.set_ylabel('Y') 
+ax.set_zlabel('Z') 
+ax.set_title('Rotation through YZ-plane (Y-axis) by 90°') 
+ax.legend() 
+plt.show() 
+
+(C).Using Python plot the graph of function f(x) = cos(x) on the interval (0, 
+2*pi). 
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+x = np.arange(0, 2*np.pi, 0.01) 
+y = np.cos(x) 
+plt.plot(x, y, label='f(x) = cos(x)') 
+plt.xlabel('x') 
+plt.ylabel('f(x)') 
+plt.title('Graph of f(x) = cos(x)') 
+plt.legend() 
+plt.grid(True) 
+plt.show()
+
+
+Q.2)
+(A).Write a python program to rotate the ray by 90° having starting point (1,0) 
+and (2,-1) 
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+start_point_1 = np.array([1, 0]) 
+start_point_2 = np.array([2, -1]) 
+direction_vector = start_point_2 - start_point_1 
+rotation_matrix = np.array([[0, -1], [1, 0]]) 
+rotated_direction_vector = np.dot(rotation_matrix, direction_vector) 
+end_point_1 = start_point_1 + rotated_direction_vector 
+end_point_2 = start_point_2 + rotated_direction_vector 
+plt.plot([start_point_1[0], start_point_2[0]], [start_point_1[1], start_point_2[1]], 
+'r', label='Original Ray') 
+plt.plot([start_point_1[0], end_point_1[0]], [start_point_1[1], end_point_1[1]], 
+'g', label='Rotated Ray') 
+plt.scatter(start_point_1[0], start_point_1[1], c='r', marker='o', label='Starting 
+Point 1') 
+plt.scatter(start_point_2[0], start_point_2[1], c='r', marker='o', label='Starting 
+Point 2') 
+plt.scatter(end_point_1[0], end_point_1[1], c='g', marker='o', label='Ending 
+Point 1') 
+plt.scatter(end_point_2[0], end_point_2[1], c='g', marker='o', label='Ending 
+Point 2') 
+plt.axhline(0, color='k', linewidth=0.5) 
+plt.axvline(0, color='k', linewidth=0.5) 
+plt.xlabel('X') 
+plt.ylabel('Y') 
+plt.legend() 
+plt.title('Ray Rotation by 90° Counterclockwise') 
+plt.grid(True) 
+plt.show()
+
+
+(B)Using sympy declare the points A(0, 7), B(5, 2). Declare the line segment 
+passing through them. Find the length and midpoint of the line segment passing 
+through points A and B.
+
+
+
+from sympy import Point, Line 
+A = Point(0, 7) 
+B = Point(5, 2) 
+line_AB = Line(A, B) 
+length_AB = A.distance(B) 
+midpoint_AB = ((A[0] + B[0]) / 2, (A[1] + B[1]) / 2) 
+print("Point A: {}".format(A)) 
+print("Point B: {}".format(B)) 
+print("Line segment AB: {}".format(line_AB)) 
+print("Length of line segment AB: {}".format(length_AB)) 
+print("Midpoint of line segment AB: {}".format(midpoint_AB))
+
+
+(C)Write a Python program to find the area and perimeter of the  ABC, where 
+A[0, 0] B[5, 0], C[3,3].
+
+
+import numpy as np 
+A = np.array([0, 0]) 
+B = np.array([5, 0]) 
+C = np.array([3, 3]) 
+AB = np.linalg.norm(B - A) 
+BC = np.linalg.norm(C - B) 
+CA = np.linalg.norm(A - C) 
+s = (AB + BC + CA) / 2 
+area = np.sqrt(s * (s - AB) * (s - BC) * (s - CA)) 
+perimeter = AB + BC + CA 
+print("Triangle ABC:") 
+print("Side AB:", AB) 
+print("Side BC:", BC) 
+print("Side CA:", CA) 
+print("Area:", area) 
+print("Perimeter:", perimeter)
+
+
+
+Q 3.
+(B).Apply Python. Program in each of the following transformation on the point 
+P[-2,4] 
+(I) Shearing in Y direction by 7 units.  
+(II)Scaling in X and Y direction by 7/2 and 7 unit respectively. 
+(III) Shearing in X and Y direction by 4 and 7 unit respectively. 
+(IV)Rotation about origin by an angle 60o
+
+
+
+import numpy as np 
+P = np.array([-2, 4]) 
+shearing_Y = np.array([[1, 0], [7, 1]]) 
+P_transformed1 = np.dot(shearing_Y, P) 
+scaling_XY = np.array([[7/2, 0], [0, 7]]) 
+P_transformed2 = np.dot(scaling_XY, P) 
+shearing_XY = np.array([[1, 4], [7, 1]]) 
+P_transformed3 = np.dot(shearing_XY, P) 
+angle = np.radians(60) 
+rotation =np.cos(angle)]]) 
+np.array([[np.cos(angle), 
+P_transformed4 = np.dot(rotation, P) 
+print("Original Point P: {}".format(P)) 
+print("Transformation 
+1: 
+{}".format(P_transformed1)) 
+Shearing -np.sin(angle)], 
+in 
+[np.sin(angle), 
+Y direction by 7 units: 
+print("Transformation 2: Scaling in X and Y direction by 7/2 and 7 units 
+respectively: {}".format(P_transformed2)) 
+print("Transformation 3: Shearing in X and Y direction by 4 and 7 units 
+respectively: {}".format(P_transformed3)) 
+print("Transformation 4: Rotation about origin by an angle of 60 degrees: 
+{}".format(P_transformed4))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

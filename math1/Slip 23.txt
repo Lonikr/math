@@ -1,0 +1,215 @@
+Q.1
+(C).Write a python program to plot 3D Surface Plot of the function z = cos(|x|
++|y|) in -1 < x,y1 < 1.
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+np.random.seed(0)
+x_vals = np.random.uniform(-1, 1, size=30)
+y_vals = np.random.uniform(-1, 1, size=30)
+x, y = np.meshgrid(np.linspace(-1, 1, 100), np.linspace(-1, 1, 100))
+z = np.cos(np.abs(x) + np.abs(y))
+for i in range(30):
+ fig = plt.figure()
+ ax = fig.add_subplot(111, projection='3d')
+ ax.plot_surface(x, y, z, cmap='viridis')
+ ax.set_xlabel('X')
+ ax.set_ylabel('Y')
+ ax.set_zlabel('Z')
+ ax.set_title(f'Surface Plot {i+1}: z = cos(|x| + |y|) for x = {x_vals[i]:.2f}, y =
+{y_vals[i]:.2f}')
+ plt.show()
+
+
+
+(B).Write a python program to Plot the graph of the following function in the
+given interval
+(i)f(x) = x^3 in [0,5]
+(ii)f(x) x ^2 in [-2,2] 
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+def f1(x):
+ return x**3
+def f2(x):
+ return x**2
+x1 = np.linspace(0, 5, 100)
+x2 = np.linspace(-2, 2, 100)
+y1 = f1(x1)
+y2 = f2(x2)
+fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+axs[0].plot(x1, y1, label='f(x) = x^3')
+axs[0].set_xlabel('x')
+axs[0].set_ylabel('f(x)')
+axs[0].set_title('f(x) = x^3 in [0, 5]')
+axs[0].legend()
+axs[1].plot(x2, y2, label='f(x) = x^2')
+axs[1].set_xlabel('x')
+axs[1].set_ylabel('f(x)')
+axs[1].set_title('f(x) = x^2 in [-2, 2]')
+axs[1].legend()
+fig.suptitle('Graphs of f(x) = x^3 and f(x) = x^2')
+plt.tight_layout()
+plt.show()
+
+
+
+Q.2 Attempt  the following.
+
+
+(B).Write a Python program to find area and perimeter of triangle ABC where
+A[0, 1], B[-5,0] and C[-3,3]
+
+import math
+A = [0, 1]
+B = [-5, 0]
+C = [-3, 3]
+formula
+AB = math.sqrt((B[0] - A[0])**2 + (B[1] - A[1])**2)
+BC = math.sqrt((C[0] - B[0])**2 + (C[1] - B[1])**2)
+AC = math.sqrt((C[0] - A[0])**2 + (C[1] - A[1])**2)
+perimeter = AB + BC + AC
+s = perimeter / 2 # Semi-perimeter of the triangle
+area = math.sqrt(s * (s - AB) * (s - BC) * (s - AC))
+print("Area of triangle ABC:", area)
+print("Perimeter of triangle ABC:", perimeter)
+
+
+
+(A).Write a python program to draw regular polygon with 20 sides and radius 1
+centered at (0,0) 
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+n = 20
+radius = 1
+angles = np.linspace(0, 2 * np.pi, n + 1)[:-1]
+x = radius * np.cos(angles)
+y = radius * np.sin(angles)
+fig, ax = plt.subplots()
+ax.plot(x, y, 'b-o', linewidth=2, markersize=8)
+ax.set_aspect('equal', 'box')
+ax.set_title(f'Regular Polygon with {n} sides')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+
+
+
+Q.3) ateempt the following.
+(i).write a Python program to solve the following LPP 
+
+Max Z = 3x + 5y + 4z
+Subjected to
+2x + 3y <= 8
+2x + 5y <= 10
+3x+2y+4z <= 15
+x , y,z > 0 
+
+import numpy as np
+from scipy.optimize import linprog
+c = [-3, -5, -4] # Coefficients of x, y, z in the objective function
+A = [
+ [2, 3, 0], # Coefficients of x, y, z in the first inequality constraint
+ [2, 5, 0], # Coefficients of x, y, z in the second inequality constraint
+ [3, 2, 4] # Coefficients of x, y, z in the third inequality constraint
+]
+b = [8, 10, 15] # Right-hand side values of the inequality constraints
+x_bounds = (0, None) # x >= 0
+y_bounds = (0, None) # y >= 0
+z_bounds = (0, None) # z >= 0
+res = linprog(c, A_ub=A, b_ub=b, bounds=[x_bounds, y_bounds,
+z_bounds], method='simplex')
+x = res.x[0] # Value of x that maximizes the objective function
+y = res.x[1] # Value of y that maximizes the objective function
+z = res.x[2] # Value of z that maximizes the objective function
+max_z = -res.fun # Maximum value of the objective function (negation
+due to maximization)
+print("Optimal solution:")
+print("x =", x)
+print("y =", y)
+print("z =", z)
+print("Max Z =", max_z)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

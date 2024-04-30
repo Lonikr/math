@@ -1,0 +1,156 @@
+Q.1) Attempt any Tow of the following.
+
+(C).Using Python plot the surface plot of function z = cos (x**2 + y**2 - 0.5) in
+the interval from -1 < x,y < 1.
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+def func(x, y):
+ return np.cos(x**2 + y**2 - 0.5)
+x = np.linspace(-1, 1, 100)
+y = np.linspace(-1, 1, 100)
+X, Y = np.meshgrid(x, y) # Create a grid of x, y values
+Z = func(X, Y) # Compute z values using the function
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis') # Plot the surface
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('Surface Plot of z = cos(x**2 + y**2 - 0.5)')
+plt.show() # Show the plot
+
+
+(A).Write n Python program to generate 3D plot of the function z = six (x) +
+cos(y) in -10 < x, y < 10.
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+x = np.linspace(-10, 10, 100)
+y = np.linspace(-10, 10, 100)
+X, Y = np.meshgrid(x, y)
+Z = np.sin(X) + np.cos(Y)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('3D Plot of z = sin(x) + cos(y)')
+plt.show()
+
+
+Q.2 Attempt any tow following.
+
+(A).Rotate the line segment by 180° having endpoints (1,0) and (2,-1).
+
+import numpy as np
+point1 = np.array([1, 0])
+point2 = np.array([2, -1])
+R = np.array([[-1, 0],[0, -1]])
+rotated_point1 = np.dot(R, point1)
+rotated_point2 = np.dot(R, point2)
+print("Rotated endpoint 1: ", rotated_point1)
+print("Rotated endpoint 2: ", rotated_point2)
+
+
+
+(C).Generate triangle with vertices (0, 0), ( 4, 0), ( 1, 4), check whether the
+triangle is Scalene triangle.
+
+
+import matplotlib.pyplot as plt
+vertices = [(0, 0), (4, 0), (1, 4)]
+def is_scalene(vertices):
+ x1, y1 = vertices[0]
+ x2, y2 = vertices[1]
+ x3, y3 = vertices[2]
+ return (x1 != x2 and x1 != x3 and x2 != x3) and (y1 != y2 and y1 != y3 and
+y2 != y3)
+if is_scalene(vertices):
+ print("The triangle is a scalene triangle.")
+else:
+ print("The triangle is not a scalene triangle.")
+x = [point[0] for point in vertices] + [vertices[0][0]]
+y = [point[1] for point in vertices] + [vertices[0][1]]
+plt.plot(x, y, marker='o', linestyle='-', color='blue')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Triangle with Vertices')
+plt.grid(True)
+plt.show()
+
+
+
+
+Q.3 attempt the following.
+
+ (i).Write a python program to display the following LPP:
+
+Min Z = 4x+y+3z+5w
+subject to
+4x+6y-5z-4w >= 20
+-8x-3y+3z+2w <= 20
+-3x -2y + 4z + w <= 10
+x >= 0,y>= 0,z>= 0,w>= 0
+
+
+
+from pulp import *
+prob = LpProblem("LPP", LpMinimize)
+x = LpVariable("x", lowBound=0)
+y = LpVariable("y", lowBound=0)
+z = LpVariable("z", lowBound=0)
+w = LpVariable("w", lowBound=0)
+prob += 4*x + y + 3*z + 5*w, "Z"
+prob += 4*x + 6*y - 5*z - 4*w >= 20
+prob += -8*x - 3*y + 3*z + 2*w <= 20
+prob += -3*x - 2*y + 4*z + w <= 10
+prob.solve()
+print("Status:", LpStatus[prob.status])
+print("Optimal values:")
+print("x =", value(x))
+print("y =", value(y))
+print("z =", value(z))
+print("w =", value(w))
+print("Optimal Z =", value(prob.objective))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

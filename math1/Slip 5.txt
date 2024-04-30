@@ -1,0 +1,212 @@
+Q.1) 
+(a)Using Python plot the surface plot of function z = cos (x**2 + y**2 - 0.5) in
+ the interval from -1 < x,y < 1
+
+
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D 
+def func(x, y): 
+    return np.cos(x**2 + y**2 - 0.5) 
+x = np.linspace(-1, 1, 100) 
+y = np.linspace(-1, 1, 100) 
+X, Y = np.meshgrid(x, y) 
+Z = func(X, Y)  
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d') 
+ax.plot_surface(X, Y, Z, cmap='viridis')
+ax.set_xlabel('X') 
+ax.set_ylabel('Y') 
+ax.set_zlabel('Z') 
+ax.set_title('Surface Plot of z = cos(x**2 + y**2 - 0.5)') 
+plt.show() 
+
+
+(b) Generate 3D surface Plot for the function f(x) = sin (x**2 + y**2) in the 
+interval [0, 10].
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D 
+def func(x, y): 
+    return np.sin(x**2 + y**2) 
+x = np.linspace(0, 10, 100) 
+y = np.linspace(0, 10, 100) 
+X, Y = np.meshgrid(x, y)  
+Z = func(X, Y)   
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d') 
+ax.plot_surface(X, Y, Z, cmap='viridis')
+ax.set_xlabel('X') 
+ax.set_ylabel('Y') 
+ax.set_zlabel('Z') 
+ax.set_title('Surface Plot of f(x) = sin(x**2 + y**2)') 
+plt.show()
+
+
+Q.2 
+(C)Write a Python program to generate 3D plot of the functions z = sin x + cos 
+y in the interval -10 < x,y < 10.
+
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D 
+def func(x, y): 
+    return np.sin(x) + np.cos(y)  
+x = np.linspace(-10, 10, 100) 
+y = np.linspace(-10, 10, 100) 
+X, Y = np.meshgrid(x, y)  
+Z = func(X, Y) 
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d') 
+ax.plot_surface(X, Y, Z, cmap='viridis') 
+ax.set_xlabel('X') 
+ax.set_ylabel('Y') 
+ax.set_zlabel('Z') 
+ax.set_title('Surface Plot of z = sin(x) + cos(y)') 
+plt.show()
+
+
+(a) Using python, generate triangle with vertices (0, 0), (4, 0), (4, 3) check 
+whether the triangle is Right angle triangle.
+
+import matplotlib.pyplot as plt 
+vertex1 = (0, 0) 
+vertex2 = (4, 0) 
+vertex3 = (4, 3) 
+x = [vertex1[0], vertex2[0], vertex3[0], vertex1[0]] 
+y = [vertex1[1], vertex2[1], vertex3[1], vertex1[1]] 
+plt.plot(x, y, 'b-o', label='Triangle') 
+plt.plot(vertex1[0], vertex1[1], 'ro', label='Vertex 1') 
+plt.plot(vertex2[0], vertex2[1], 'go', label='Vertex 2') 
+plt.plot(vertex3[0], vertex3[1], 'mo', label='Vertex 3') 
+plt.xlabel('X') 
+plt.ylabel('Y') 
+plt.title('Triangle with Vertices') 
+plt.legend() 
+plt.grid(True) 
+plt.show() 
+
+
+ Q.3
+(a).Write a Python program to find the area and perimeter of the  ABC, where 
+A[0, 0] B[6, 0], C[4,4].
+
+
+import numpy as np 
+A = np.array([0, 0]) 
+B = np.array([6, 0]) 
+C = np.array([4, 4])  
+AB = np.linalg.norm(B - A) 
+BC = np.linalg.norm(C - B) 
+CA = np.linalg.norm(A - C)  
+s = (AB + BC + CA) / 2 
+area = np.sqrt(s * (s - AB) * (s - BC) * (s - CA)) 
+perimeter = AB + BC + CA 
+print("Triangle ABC:") 
+print("Side AB:", AB) 
+print("Side BC:", BC) 
+print("Side CA:", CA) 
+print("Area:", area) 
+print("Perimeter:", perimeter)
+
+
+Q.3
+(i) write a Python program to solve the following LPP.
+
+
+from scipy.optimize import linprog 
+c = [-5, -3]  
+A = [[1, 1], 
+[2, 5]] 
+b = [7, 1]  
+x_bounds = (0, None) 
+y_bounds = (0, None)  
+res = linprog(c, A_ub=A, b_ub=b, bounds=[x_bounds, y_bounds]) 
+if res.success: 
+    print("Optimal solution found:") 
+    print("x =", res.x[0]) 
+    print("y =", res.x[1]) 
+    print("Maximum value of Z =", -res.fun) 
+else: 
+    print("Optimization failed. Message:", res.message)
+
+
+(ii) Write a python program to Plot 2D X-axis and Y-axis in black color. In the 
+same diagram plot:-
+
+
+import matplotlib.pyplot as plt 
+fig, ax = plt.subplots() 
+ax.axhline(0, color='black') 
+ax.axvline(0, color='black') 
+green_triangle = plt.Polygon([[5, 4], [7, 4], [6, 6]], edgecolor='green', 
+facecolor='none') 
+ax.add_patch(green_triangle)  
+blue_rectangle = plt.Polygon([[2, 2], [10, 2], [10, 8], [2, 8]], edgecolor='blue', 
+facecolor='none') 
+ax.add_patch(blue_rectangle) 
+red_polygon = plt.Polygon([[6, 2], [10, 4], [8, 7], [4, 8], [2, 4]], edgecolor='red', 
+facecolor='none') 
+ax.add_patch(red_polygon) 
+isosceles_triangle = plt.Polygon([[0, 0], [4, 0], [2, 4]], edgecolor='magenta', 
+facecolor='none') 
+ax.add_patch(isosceles_triangle) 
+ax.set_xlim([-1, 11]) 
+ax.set_ylim([-1, 11]) 
+ax.set_xlabel('X-axis') 
+ax.set_ylabel('Y-axis') 
+ax.set_title('2D Shapes')  
+plt.show() 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,155 @@
+Q.1) write a python program to plot the graph of y = x**3 + 10*x - 5, for x belongs
+ [-10, 10] in red color
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+def equation(x): 
+return x**3 + 10*x - 5 
+x = np.linspace(-10, 10, 500) 
+y = equation(x) 
+plt.plot(x, y, color='red') 
+plt.title("Graph of y = x**3 + 10*x - 5") 
+plt.xlabel("x") 
+plt.ylabel("y") 
+plt.show() 
+
+
+(B).write a python program in 3D to rotate the point ( 1, 0, 0) through XZ- plane 
+in clockwise direction (rotation through Y- axis by an angle of 90°).
+
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D 
+point = np.array([1, 0, 0]) 
+theta = np.radians(90) 
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d') 
+ax.scatter(point[0], point[1], point[2], color='red', label='Original Point') 
+rotated_point = np.dot(np.array([[np.cos(theta), 0, np.sin(theta)], 
+[0, 1, 0], 
+[-np.sin(theta), 0, np.cos(theta)]]), point) 
+ax.scatter(rotated_point[0], rotated_point[1], rotated_point[2], color='blue', 
+label='Rotated Point') 
+ax.set_title('Rotation of Point in 3D') 
+ax.set_xlabel('X') 
+ax.set_ylabel('Y') 
+ax.set_zlabel('Z') 
+ax.legend() 
+plt.show()
+
+
+
+(C)Using Python plot the graph of function f(x) = x**2 on the interval (-2,2). 
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+def f(x): 
+return x**2 
+x = np.arange(-2, 2, 0.1) 
+y = f(x) 
+plt.plot(x, y, label='f(x) = x^2') 
+plt.title('Graph of f(x) = x^2') 
+plt.xlabel('x') 
+plt.ylabel('f(x)') 
+plt.legend() 
+# Show the plot 
+plt.show()
+
+(A).Write a python program to rotate the segment by 180° having endpoints (1,0) 
+and (2,-1) 
+
+import math 
+x1, y1 = 1, 0 
+x2, y2 = 2, -1 
+x1_rotated = -x1 
+y1_rotated = -y1 
+x2_rotated = -x2 
+y2_rotated = -y2 
+print("Original Endpoint 1: ({}, {})".format(x1, y1)) 
+print("Original Endpoint 2: ({}, {})".format(x2, y2)) 
+print("Rotated Endpoint 1: ({}, {})".format(x1_rotated, y1_rotated)) 
+print("Rotated Endpoint 2: ({}, {})".format(x2_rotated, y2_rotated))
+
+
+(C).Write a python program to draw a polygon with 8 sides and radius 5 centered 
+at origin and find its area and perimeter
+
+
+import matplotlib.pyplot as plt 
+import numpy as np 
+num_sides = 8 
+radius = 5 
+angle = 2 * np.pi / num_sides 
+x = [radius * np.cos(i * angle) for i in range(num_sides)] 
+y = [radius * np.sin(i * angle) for i in range(num_sides)] 
+x.append(x[0]) 
+y.append(y[0]) 
+plt.plot(x, y, 'bo-') # 'bo-' specifies blue color, circle marker, and solid line 
+plt.axis('equal') 
+plt.xlabel('X') 
+plt.ylabel('Y') 
+plt.title('Octagon with Radius 5 Centered at Origin') 
+plt.show() 
+area = 0.5 * num_sides * radius ** 2 * np.sin(angle) 
+perimeter = num_sides * radius 
+print('Area of the octagon:', area) 
+print('Perimeter of the octagon:', perimeter)
+
+
+(C).Write a python program to find the area and perimeter of the XYZ, where 
+X(l, 2), Y(2, -2), Z(-1,2).
+
+
+import math 
+X = [1, 2] 
+Y = [2, -2] 
+Z = [-1, 2] 
+def distance(p1, p2): 
+return math.sqrt((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2) 
+XY = distance(X, Y) 
+YZ = distance(Y, Z) 
+XZ = distance(X, Z) 
+perimeter = XY + YZ + XZ 
+s = perimeter / 2 
+area = math.sqrt(s * (s - XY) * (s - YZ) * (s - XZ)) 
+print("Length of XY: ", XY) 
+print("Length of YZ: ", YZ) 
+print("Length of XZ: ", XZ) 
+print("Perimeter: ", perimeter) 
+print("Area: ", area))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

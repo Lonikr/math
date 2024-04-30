@@ -1,0 +1,134 @@
+Q.1
+(A)Write a Python program to plot 2D graph of the functions f(x) = x2 and in [0,
+ 10]
+
+ import numpy as np 
+import matplotlib.pyplot as plt 
+x = np.linspace(0,10) 
+y = np.log10(x)  
+plt.plot(x, y) 
+plt.xlabel('x') 
+plt.ylabel('f(x) = log10(x)') 
+plt.title('2D Graph of f(x) = log10(x)') 
+plt.grid(True) 
+plt.show() 
+
+(B) Using python, generate 3D surface Plot for the function f(x) = sin (x2 + y2) 
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D 
+ 
+x = np.linspace(0, 10, 100) 
+y = np.linspace(0, 10, 100) 
+X, Y = np.meshgrid(x, y) 
+Z = np.sin(X**2 + Y**2) 
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d') 
+ax.plot_surface(X, Y, Z)  
+ax.set_xlabel('x') 
+ax.set_ylabel('y') 
+ax.set_zlabel('f(x, y) = sin(x^2 + y^2)') 
+ax.set_title('3D Surface Plot of f(x, y) = sin(x^2 + y^2)') 
+plt.show()
+
+(C)  Using python, represent the following information using a bar graph (in 
+green color)
+
+import matplotlib.pyplot as plt  
+left =[1,2,3,4,5] 
+height =[68,90,70,85,91] 
+tick_label=['Maths','Science','English','Marathi','Hindi'] 
+plt.bar (left,height,tick_label = tick_label,width = 0.8 ,color = ['green','green']) 
+plt.xlabel('Item') 
+plt.ylabel('Expenditure') 
+plt.show()
+
+
+Q.2Using sympy declare the points A(0, 2), B(5, 2), C(3, 0) check whether these 
+points arc collinear. Declare the line passing through the points A and B, find the 
+distance of this line from point C.
+
+from sympy import Point, Line 
+A = Point(0, 2) 
+B = Point(5, 2) 
+C = Point(3, 0)  
+collinear = Point.is_collinear(A, B, C) 
+if collinear: 
+    print("Points A, B, and C are collinear.") 
+else: 
+    print("Points A, B, and C are not collinear.") 
+AB_line = Line(A, B) 
+distance = AB_line.distance(C) 
+print("Distance of the line passing through A and B from point C: ", distance)
+
+(B)Using python, drawn a regular polygon with 6 sides and radius 1 centered at 
+(1, 2) and find its area and perimeter.
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+center = np.array([1, 2]) 
+radius = 1 
+angles = np.linspace(0, 2*np.pi, 7)[:-1] 
+x = center[0] + radius * np.cos(angles) 
+y = center[1] + radius * np.sin(angles) 
+plt.plot(x, y, '-o', color='b', label='Hexagon') 
+plt.xlabel('x') 
+plt.ylabel('y') 
+plt.title('Regular Hexagon with Radius 1 Centered at (1, 2)') 
+plt.grid(True) 
+plt.axis('equal') 
+plt.legend() 
+plt.show() 
+side_length = np.sqrt(3) * radius 
+area = 3 * np.sqrt(3) / 2 * side_length**2
+perimeter = 6 * side_length  
+print("Area of the hexagon: ", area) 
+print("Perimeter of the hexagon: ", perimeter)
+
+(C) Write a Python program to find the area and perimeter of the  ABC, where 
+A[0, 0] B[6, 0], C[4,4]. 
+
+import numpy as np 
+A = np.array([0, 0]) 
+B = np.array([6, 0]) 
+C = np.array([4, 4]) 
+AB = np.linalg.norm(B - A) 
+BC = np.linalg.norm(C - B) 
+CA = np.linalg.norm(A - C) 
+s = (AB + BC + CA) / 2 
+area = np.sqrt(s * (s - AB) * (s - BC) * (s - CA)) 
+perimeter = AB + BC + CA 
+print("Triangle ABC:") 
+print("Side AB:", AB) 
+print("Side BC:", BC) 
+print("Side CA:", CA) 
+print("Area:", area) 
+print("Perimeter:", perimeter)
+
+
+Q.3
+(B)Apply Python. Program in each of the following transformation on the point 
+P[4,-2] 
+(I)Refection through y-axis. 
+(II)Scaling in X-co-ordinate by factor 3. 
+(III) Scaling in Y-co-ordinate by factor 2.5.  
+(IV) Reflection through the line y =- x 
+
+import numpy as np 
+P = np.array([4, -2])  
+P_reflection_y_axis = np.array([-P[0], P[1]]) 
+P_scaling_x = np.array([3 * P[0], P[1]]) 
+P_scaling_y = np.array([P[0], 2.5 * P[1]])  
+P_reflection_line = np.array([-P[1], -P[0]]) 
+print("Original Point P: ", P) 
+print("Reflection through y-axis: ", P_reflection_y_axis) 
+print("Scaling in X-coordinate by factor 3: ", P_scaling_x) 
+print("Scaling in Y-coordinate by factor 2.5: ", P_scaling_y) 
+print("Reflection through the line y = -x: ", P_reflection_line)
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+Q.1)  Attempt any tow of the following.
+
+(A).Write the python program to plot 3D graph of the function f(x) = e(-x^2) in
+[-5,5] with green dashed points line with upward pointing triangle.
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+def f(x):
+ return np.exp(-x**2)
+x = np.linspace(-5, 5, 100)
+y = f(x)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(x, y, 'g--', marker='^', markersize=6)
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('f(x)')
+ax.set_title('3D Plot of f(x) = e^(-x^2)')
+plt.show()
+
+
+
+(C).Write the python program to plot graph of the function f(x) = log(3x^2) in
+[1,10] with black dashed points
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+def f(x):
+ return np.log(3 * x**2)
+x = np.linspace(1, 10, 100)
+y = f(x)
+plt.plot(x, y, 'k--', marker='o', markersize=6)
+plt.xlabel('X')
+plt.ylabel('f(x)')
+plt.title('Plot of f(x) = log(3x^2)')
+plt.show()
+
+
+Q.2 Attempt the following.
+(A).Write the python program to plot triangle with vertices [3,3],[5,6],[5,2] and
+its rotation about the origin by angle –pi radians
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+v1 = np.array([3, 3])
+v2 = np.array([5, 6])
+v3 = np.array([5, 2])
+theta = -np.pi # Angle of rotation in radians
+R = np.array([[np.cos(theta), -np.sin(theta)],[np.sin(theta), np.cos(theta)]])
+v1_rotated = np.dot(R, v1)
+v2_rotated = np.dot(R, v2)
+v3_rotated = np.dot(R, v3)
+plt.figure()
+plt.plot([v1[0], v2[0], v3[0], v1[0]], [v1[1], v2[1], v3[1], v1[1]], 'b-',label='Original Triangle')
+plt.plot([v1_rotated[0], v2_rotated[0], v3_rotated[0], v1_rotated[0]],
+[v1_rotated[1], v2_rotated[1], v3_rotated[1], v1_rotated[1]], 'r-', label='Rotated Triangle')
+plt.plot(0, 0, 'ko', label='Origin')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Triangle Rotation')
+plt.legend()
+plt.show()
+
+
+
+(b).Write a python to generate vector x in the interval [-22,22] using numpy
+package with 80 subinterval 
+
+
+import numpy as np
+n_subintervals = 80
+lower_bound = -22
+upper_bound = 22
+x = np.linspace(lower_bound, upper_bound, n_subintervals+1)
+print("Vector x:", x)
+
+
+Q.3 Attempt the following.
+(a).write a Python program to solve the following LPP 
+
+Max Z = 3.5x + 2y
+Subjected to
+x + y >= 5
+x >=4
+y<=5
+x >= 0,y>= 0.
+
+
+from pulp import *
+problem = LpProblem("Maximize Z", LpMaximize)
+x = LpVariable('x', lowBound=0) # x >= 0
+y = LpVariable('y', lowBound=0) # y >= 0
+problem += 3.5 * x + 2 * y
+problem += x + y >= 5
+problem += x >= 4
+problem += y <= 5
+status = problem.solve()
+if status == 1:
+ print("Optimal solution:")
+ print(f"x = {value(x)}")
+ print(f"y = {value(y)}")
+ print(f"Z = {value(problem.objective)}")
+else:
+ print("No feasible solution found.")
+
+
+
+
+
+
+
+
+
+
+

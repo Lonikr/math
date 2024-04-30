@@ -1,0 +1,221 @@
+Q.1) 
+(A).Write the python program to find area of the triangle ABC where
+ A[0,0],B[5,0],C[3,3]
+
+
+import math 
+def calculate_area(x1, y1, x2, y2, x3, y3): 
+"""Function to calculate area of a triangle given its three vertices.""" 
+area = abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2) 
+return area 
+Ax, Ay = 0, 0 
+Bx, By = 5, 0 
+Cx, Cy = 3, 3 
+area = calculate_area(Ax, Ay, Bx, By, Cx, Cy) 
+print("Area of triangle ABC is:", area)
+
+
+
+(B)Write the python program to plot the graphs of sin x, cox, e**x and x **2 in
+ [0,5] in one figure with 2X2 subplots
+
+
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+x = np.linspace(0, 5, 500) 
+y1 = np.sin(x) 
+y2 = np.cos(x) 
+y3 = np.exp(x) 
+y4 = x**2 
+fig, axs = plt.subplots(2, 2, figsize=(10, 10)) 
+fig.suptitle('Plots of sin(x), cos(x), e**x, and x**2') 
+axs[0, 0].plot(x, y1, label='sin(x)') 
+axs[0, 0].set_title('sin(x)') 
+axs[0, 1].plot(x, y2, label='cos(x)') 
+axs[0, 1].set_title('cos(x)') 
+axs[1, 0].plot(x, y3, label='e**x') 
+axs[1, 0].set_title('e**x') 
+axs[1, 1].plot(x, y4, label='x**2') 
+axs[1, 1].set_title('x**2') 
+for ax in axs.flat: 
+ax.set_xlabel('x') 
+ax.set_ylabel('y') 
+ax.legend() 
+ax.grid(True) 
+fig.tight_layout() 
+plt.show()
+
+
+
+(C). Write the python program to plot the graph of the function using def () 
+
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+def f(x): 
+"""Function to define f(x).""" 
+if -10 < x < 5: 
+return x**2 + 4 
+elif 5 <= x: 
+5 <𝑥≥0 
+return 3*x + 9 
+else: 
+return None 
+x = np.linspace(-11, 11, 500)  # Generate 500 points between -11 and 11 
+y = np.array([f(xi) for xi in x]) 
+plt.plot(x, y, label='f(x)') 
+plt.xlabel('x') 
+plt.ylabel('f(x)') 
+plt.title('Graph of f(x)') 
+plt.legend() 
+plt.grid(True) 
+plt.show()
+
+
+Q.2
+(A)write the Python program to rotate the triangle ABC by 180 degree, where 
+A [2,1] B[2, -2] & C[-1, 2].
+
+
+import numpy as np 
+A = np.array([2, 1]) 
+B = np.array([2, -2]) 
+C = np.array([-1, 2]) 
+rotation_matrix = np.array([[-1, 0],[0, -1]]) 
+A_rotated = np.dot(rotation_matrix, A) 
+B_rotated = np.dot(rotation_matrix, B) 
+C_rotated = np.dot(rotation_matrix, C) 
+print("Original Triangle Vertices:") 
+print("A:", A) 
+print("B:", B) 
+print("C:", C) 
+print("Rotated Triangle Vertices:") 
+print("A Rotated:", A_rotated) 
+print("B Rotated:", B_rotated) 
+print("C Rotated:", C_rotated)
+
+
+(B)Write the Python program to plot the graph of function f(x) = e**x in the 
+interval [-10, 10]. 
+
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+def f(x): 
+return np.exp(x) 
+x = np.linspace(-10, 10, 500) 
+y = f(x) 
+plt.plot(x, y, label='f(x) = e**x') 
+plt.xlabel('x') 
+plt.ylabel('f(x)') 
+plt.title('Graph of f(x) = e**x') 
+plt.legend() 
+plt.grid(True) 
+plt.show()
+
+
+(C).Write a Python program to plot 3D line graph Whose parametric equation 
+is (cos(2x),sin(2x),x) for 10 <= x <= 20 (in red color), with title of the graph 
+
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D 
+x = np.linspace(10, 20, 500) 
+y = np.sin(2 * x) 
+z = x 
+x = np.cos(2 * x) 
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d') 
+ax.plot(x, y, z, color='red') 
+ax.set_title("3D Line Graph: (cos(2x), sin(2x), x)") 
+ax.set_xlabel('X') 
+ax.set_ylabel('Y') 
+ax.set_zlabel('Z') 
+plt.show() 
+
+
+A)write a Python program to solve the following LPP 
+i.Max Z = 3.5x + 2y 
+Subjected to  
+x + y >= 5 
+x >=4 
+y<=5 
+x >= 0,y>= 0.
+
+
+
+from pulp import * 
+problem = LpProblem("Maximize Z", LpMaximize) 
+x = LpVariable('x', lowBound=0)  # x >= 0 
+y = LpVariable('y', lowBound=0)  # y >= 0 
+problem += 3.5 * x + 2 * y 
+problem += x + y >= 5 
+problem += x >= 4 
+problem += y <= 5 
+status = problem.solve() 
+if status == 1: 
+print("Optimal solution:") 
+print(f"x = {value(x)}") 
+print(f"y = {value(y)}") 
+print(f"Z = {value(problem.objective)}") 
+else: 
+print("No feasible solution found.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
