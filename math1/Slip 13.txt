@@ -1,206 +1,53 @@
-Q.1)
- (A)Write a Python program to plot 2D graph of the functions f(x) = x2  and g(x)
- = x3 in [-1, 1]
+ Q.1
+    2. Use Python code to find area and circumference of square whose length is 5
+    
+    side_length = 5
+area = side_length ** 2
+circumference = 4 * side_length
+print("Area of the square:", area)
+print("Circumference of the square:", circumference)
 
 
-import matplotlib.pyplot as plt 
-import numpy as np 
-def f(x): 
-return x**2 
-def g(x): 
-return x**3 
-x = np.linspace(-1, 1, 100) 
-y_f = f(x) 
-y_g = g(x) 
-fig, ax = plt.subplots() 
-ax.plot(x, y_f, label='f(x) = x^2') 
-ax.plot(x, y_g, label='g(x) = x^3') 
-ax.set_xlabel('x') 
-ax.set_ylabel('y') 
-ax.legend() 
-ax.set_title('2D Graph of f(x) = x^2 and g(x) = x^3') 
-plt.show()
+
+ 3. Write Python program to generate the square number from 1 to 10
+    
+    
+    square_numbers = []
+for i in range(1, 11):
+    square = i ** 2
+    square_numbers.append(square)
+print("Square numbers from 1 to 10:", square_numbers)
 
 
-(B).Using Python, plot the surface plot of parabola z = x**2 + y**2 in -6<x,y<6
-
-import numpy as np 
-import matplotlib.pyplot as plt 
-from mpl_toolkits.mplot3d import Axes3D 
-x = np.linspace(-6, 6, 100) 
-y = np.linspace(-6, 6, 100) 
-X, Y = np.meshgrid(x, y) 
-Z = X**2 + Y**2 
-fig = plt.figure() 
-ax = fig.add_subplot(111, projection='3d') 
-surf = ax.plot_surface(X, Y, Z, cmap='viridis') 
-ax.set_xlabel('X') 
-ax.set_ylabel('Y') 
-ax.set_zlabel('Z') 
-ax.set_title('Surface Plot of z = x**2 + y**2') 
-plt.show() 
+ Q.2. Attempt any twoof the following.
+ 1. Write Python code to reverse the string S=[1,2,3,4,5,6,7,8,9]
 
 
-(C).Write a Python program to plot 3D line graph Whose parametric equation is 
-(cos(2x),sin(2x),x) for 10 <= x <= 20 (in red color), with title of the graph
+
+S = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+reversed_S = S[::-1]
+print("Reversed list:", reversed_S)
 
 
-import numpy as np 
-import matplotlib.pyplot as plt 
-from mpl_toolkits.mplot3d import Axes3D 
-x = np.linspace(10, 20, 500) 
-y = np.sin(2 * x) 
-z = x 
-x = np.cos(2 * x) 
-fig = plt.figure() 
-ax = fig.add_subplot(111, projection='3d') 
-ax.plot(x, y, z, color='red') 
-ax.set_title("3D Line Graph: (cos(2x), sin(2x), x)") 
-ax.set_xlabel('X') 
-ax.set_ylabel('Y') 
-ax.set_zlabel('Z') 
-plt.show() 
 
+ 2. Write Python program to find f(x) = x2 +3x, Where (−1 ≤ x ≤ 3).
+    
+    x_values = range(-1, 4)  
+for x in x_values:
+    fx = x**2 + 3*x
 
-Q.2
-(A).Write a python program to reflect the ABC through the line y = 3 where 
-A(1,0),D(2, -1),C(-1,3).
-
-
-def reflect_point(point, line_y): 
-x, y = point 
-y_reflected = 2 * line_y - y 
-return x, y_reflected 
-A = (1, 0) 
-D = (2, -1) 
-C = (-1, 3) 
-line_y = 3 
-A_reflected = reflect_point(A, line_y) 
-D_reflected = reflect_point(D, line_y) 
-C_reflected = reflect_point(C, line_y) 
-print("Original Points:") 
-print("A:", A) 
-print("D:", D) 
-print("C:", C) 
-print("Reflected Points:") 
-print("A_reflected:", A_reflected) 
-print("D_reflected:", D_reflected) 
-print("C_reflected:", C_reflected) 
-Output: 
-Original Points: 
-A: (1, 0) 
-D: (2, -1) 
-C: (-1, 3) 
-Reflected Points: 
-A_reflected: (1, 6) 
-D_reflected: (2, 7) 
-C_reflected: (-1, 3)
-
-
-(C).Using sympy declare the points P(5, 2), Q(5, -2), R(5, O), check whether 
-these points are collinear. Declare the ray passing through the points P and Q, 
-find the length of this ray between P and Q. Also find slope of this ray.
-
-
-from sympy import * 
-P = Point(5, 2) 
-Q = Point(5, -2) 
-R = Point(5, Symbol('O')) 
-collinear = Point.is_collinear(P, Q, R) 
-if collinear: 
-print("Points P, Q, and R are collinear.") 
-else: 
-print("Points P, Q, and R are not collinear.") 
-ray_PQ = Ray(P, Q) 
-length_PQ = ray_PQ.length 
-print("Length of ray PQ between points P and Q:", length_PQ) 
-slope_PQ = ray_PQ.slope 
-print("Slope of ray PQ:", slope_PQ)
-
-
-(B).Write a Python program to find the area and perimeter of the  ABC, where 
-A[0, 0] B[5, 0], C[3,3].
-
-
-import numpy as np 
-A = np.array([0, 0]) 
-B = np.array([4, 0]) 
-C = np.array([3, 3]) 
-AB = np.linalg.norm(B - A) 
-BC = np.linalg.norm(C - B) 
-CA = np.linalg.norm(A - C) 
-s = (AB + BC + CA) / 2 
-area = np.sqrt(s * (s - AB) * (s - BC) * (s - CA)) 
-perimeter = AB + BC + CA 
-print("Triangle ABC:") 
-print("Side AB:", AB) 
-print("Side BC:", BC) 
-print("Side CA:", CA) 
-print("Area:", area) 
-print("Perimeter:", perimeter)
-
-
-Q.3(A).write a Python program to solve the following LPP 
-Max Z = 5x + 3y 
-Subjected to  
-x + y <= 7 
-2x + 5y <= 1 
-x > 0 
-y > 0
-
-
-from scipy.optimize import linprog 
-c = [-5, -3] 
-A = [[1, 1], 
-[2, 5]] 
-b = [7, 1] 
-x_bounds = (0, None) 
-y_bounds = (0, None) 
-res = linprog(c, A_ub=A, b_ub=b, bounds=[x_bounds, y_bounds]) 
-if res.success: 
-print("Optimal solution found:") 
-print("x =", res.x[0]) 
-print("y =", res.x[1]) 
-print("Maximum value of Z =", -res.fun) 
-else: 
-print("Optimization failed. Message:", res.message)
+    print(f"f({x}) = {fx}")
 
 
 
 
+ 2. Write Python program to find f(x) = x2 +3x, Where (−1 ≤ x ≤ 3).
+    
+    x_values = range(-1, 4)  
+for x in x_values:
+    fx = x**2 + 3*x
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print(f"f({x}) = {fx}")
 
 
 

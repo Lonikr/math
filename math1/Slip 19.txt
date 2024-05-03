@@ -1,121 +1,46 @@
-Q.1) Plot the graphs of sin x, cos x, e**x and x**3 in [O, 5] in one figure with (2
- x 2) subplot
+ Q.1.Attemptanytwoofthefollowing. [10]
+ 1.Writepythoncodetodisplaymultiplicationtablesofnumbers2to10
 
-import numpy as np 
-import matplotlib.pyplot as plt 
-x = np.linspace(0, 5, 500) 
-y1 = np.sin(x) 
-y2 = np.cos(x) 
-y3 = np.exp(x) 
-y4 = x**3 
-fig, axs = plt.subplots(2, 2, figsize=(10, 8)) 
-fig.suptitle('Graphs of sin(x), cos(x), e**x, and x**2') 
-axs[0, 0].plot(x, y1, label='sin(x)') 
-axs[0, 0].legend() 
-axs[0, 1].plot(x, y2, label='cos(x)') 
-axs[0, 1].legend() 
-axs[1, 0].plot(x, y3, label='e**x') 
-axs[1, 0].legend() 
-axs[1, 1].plot(x, y4, label='x**2') 
-axs[1, 1].legend() 
-for ax in axs.flat: 
-ax.set_xlabel('x') 
-ax.set_ylabel('y') 
-fig.tight_layout() 
-plt.show()
+start = 2
+end = 10
+for num in range(start, end + 1):
+    print(f"Multiplication table for {num}:")    
+for i in range(1, 11):
+    product = num * i
+    print(f"{num} x {i} = {product}")
+print()
 
 
 
-(B).Write a python program to plot 30 Surface Plot of the function z = cos(|x| 
-+|y|) in -1 < x,y1 < 1.
 
 
-import numpy as np 
-import matplotlib.pyplot as plt 
-np.random.seed(0) 
-x_vals = np.random.uniform(-1, 1, size=30) 
-y_vals = np.random.uniform(-1, 1, size=30) 
-x, y = np.meshgrid(np.linspace(-1, 1, 100), np.linspace(-1, 1, 100)) 
-z = np.cos(np.abs(x) + np.abs(y)) 
-for i in range(30): 
-fig = plt.figure() 
-ax = fig.add_subplot(111, projection='3d') 
-ax.plot_surface(x, y, z, cmap='viridis') 
-ax.set_xlabel('X') 
-ax.set_ylabel('Y') 
-ax.set_zlabel('Z') 
-ax.set_title(f'Surface Plot {i+1}: z = cos(|x| + |y|) for x = {x_vals[i]:.2f}, y = 
-{y_vals[i]:.2f}') 
-plt.show()
+ 2.WritePythoncodetocheckifanumberisZero,OddorEven
+    
+    number = int(input("Enter a number: "))
+if number == 0:
+    print("The number is zero.")
+elif number % 2 == 0:
+    print("The number is even.")
+else:
+    print("The number is odd.")
 
 
 
-(C)Write a python program to plot 2D graph of the functions f(x) = log(x) + 5 
-and g(x) = log(x) – 5 in [0, 10] by setting different line width and different colors 
-to the curve.
+
+ Q.2.Attemptanytwoofthefollowing. [10]
+ 1.Writepythoncodetofindtransposeandinverseofmatri
 
 
-import numpy as np 
-import matplotlib.pyplot as plt 
-def f(x): 
-return np.log(x) + 5 
-def g(x): 
-return np.log(x) - 5 
-x = np.linspace(0.01, 10, 100) 
-y_f = f(x) 
-y_g = g(x) 
-plt.plot(x, y_f, label='f(x) = log(x) + 5', linewidth=2, color='blue') 
-plt.plot(x, y_g, label='g(x) = log(x) - 5', linewidth=1, color='red') 
-plt.xlabel('x') 
-plt.ylabel('y') 
-plt.legend() 
-plt.title('2D Graph of f(x) and g(x)') 
-plt.show()
-
-
-
-Q.2
-(A).Write a python program to rotate the segment by 90° having endpoints (0,0) 
-and (4,4)  
-
-import math 
-x1, y1 = 0, 0 
-x2, y2 = 4, 4 
-x1_rotated = -x1 
-y1_rotated = -y1 
-x2_rotated = -x2 
-y2_rotated = -y2 
-print("Original Endpoint 1: ({}, {})".format(x1, y1)) 
-print("Original Endpoint 2: ({}, {})".format(x2, y2)) 
-print("Rotated Endpoint 1: ({}, {})".format(x1_rotated, y1_rotated)) 
-print("Rotated Endpoint 2: ({}, {})".format(x2_rotated, y2_rotated))
-
-
-
- i.write a Python program to solve the following LPP  
-
-Max Z = x + 2y + z 
-Subjected to  
-X + 0.5y + 0.5z <= 1 
-1.5x + 2y + z >= 8  
-x > 0 , y > 0  
-
-
-
-from scipy.optimize import linprog 
-c = [1, 2, 1] 
-A = [[1, 0.5, 0.5], 
-     [-1.5, -2, -1]] 
-b = [1, -8] 
-bounds = [(0, None), (0, None), (0, None)] 
-ineq_ops = ['<=', '>='] 
-res = linprog(c, A_ub=A, b_ub=b, bounds=bounds, method='simplex') 
-print("Optimization Result:") 
-print("Objective Value (Z):", res.fun) 
-print("Optimal Solution (x, y, z):", res.x)
-
-
-
+import numpy as np
+A = np.array([[1, 2, 2],[2, 1, 2],[2, 2, 1]])
+A_transpose = np.transpose(A)
+A_inverse = np.linalg.inv(A)
+print("Matrix A:")
+print(A)
+print("\nTranspose of A:")
+print(A_transpose)
+print("\nInverse of A:")
+print(A_inverse)
 
 
 
