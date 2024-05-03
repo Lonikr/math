@@ -1,0 +1,93 @@
+1.WritePythoncodetodisplaymultiplicationtablesofnumbers20to30
+
+for i in range (20,32):
+    print(f"Multiplication table for{i}:")
+for j in range(1,11):
+    product=i*j
+    print("f{i}x{j}={product}")
+    print()
+
+
+
+ 2.Write Python code to list name and birthdate of 5 student sin your class
+    
+    
+    student_data=[{"name":"Nikhil","birthdate":"2003-04-15"},
+              {"name":"kiran","birthdate":"2004-05-19"},
+              {"name":"om","birthdate":"2007-09-17"},
+              {"name":"prasad","birthdate":"2006-04-15"},
+              {"name":"dipak","birthdate":"2008-08-15"}
+]
+for student in student_data:
+    print(f"Name:{student['name']},Birth date:{student['birthdate']}")
+
+
+
+ 3.WritePythonfunctionf(a,b)=(4a+b)3(a–6b),findthevalueoff(12,25)
+    
+    def fun (a,b):
+    print((4*a+b)/(3*(a-6*b)))
+fun(12,25)
+
+
+
+Q.2 (1).UsingPythonconstructthefollowingmatrices.
+ 1.Matrixoforder 5×6 with all entries1.
+ 2.Zeromatrix of order 27×33.
+ 3. Identity matrix of order 5
+    
+    
+    
+    import numpy as np
+matrix=np.ones((5,6))
+print(matrix)
+
+from sympy import*
+zeros(27,33)
+
+import numpy as np
+matrix3=np.eye(5)
+print(matrix3)
+
+
+ 2.Writ epython code to perform the R2+2R1 row operationon given matrix.
+    
+    R=[[1,1,1],[2,2,2],[3,3,3]]
+R=np.array([[1,1,1],[2,2,2],[3,3,3]])
+R[1]=R[1]+2*R[0]
+print(R)
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

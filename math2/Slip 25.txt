@@ -1,0 +1,154 @@
+Q.1Write Python program to printtheintegers between 1and 1000 whicharemultiples of 7
+    
+    for i in range(1,1001):
+    if i% 7==0:
+        print(i)
+
+
+Q.2.Write Pythonprogram to print swhether the given number is divisible by 3or 5or 7
+
+
+num=int(input("enter a number:"))
+if num%3==0:
+    print("Division by 3")
+if num %5==0:
+    print("Division by 5")
+if num %7==0:
+    print("Division by 7")
+    
+
+
+3. WritePythoncodetofindA+BandB∗AforthegivenMatrices
+
+import numpy as np
+A=np.array([[4,2,4],[4,-1,1],[2,4,2]])
+B=np.array([[5,2,3],[3,-7,5],[3,1,-1]])
+sum_result =A+B
+product_result=np.dot(B,A)
+print("sum(A+B):\n",sum_result)
+print("product(B*A):\n",product_result)
+
+
+
+Q.2 
+1.Write Pythonprogram to find thea reaandcircumference of a circle with radius r
+
+import math
+r=float(input("enter the radius of the circle:"))
+area=math.pi*(r**2)
+circumference=2*math.pi*r
+print("the rea of the circle is:",area)
+print("the circumference of the circle:5 ")
+
+
+
+B.Write Python program to estimate the value of the integral 10sin2(πx)dx using Simpson’s (13)rd rule (n=6).
+
+
+
+import math
+def f(x):
+    return math.sin(math.pi*x)**2
+n=6
+a=0
+b=1
+h=(b-a)/n
+result=f(a)+f(b)
+for i in range(1,n,2):
+    result+=2*f(a+i*h)
+for i in range(2,n-2,2):
+    result+=2*f(a+i*h)
+    result*=h/3
+    print("estimated integer value:",result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

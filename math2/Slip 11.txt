@@ -1,0 +1,74 @@
+ Q.1.Attemptanytwoofthefollowing. [10]
+ 1. EvaluatefollowingexpressiononPython
+
+M = [1, 2, 3, 4, 5, 6, 7]
+length_M = len(M)
+print(length_M)
+L = "XY" + "pqr"
+print(L)
+s = 'Make In India'
+substring_1 = s[:5]  
+substring_2 = s[:9]  
+print(substring_1, substring_2)
+
+
+3.WritePythoncodetoreversethestringS=[3,4,5,6,7,8,9,10,11,12,13]
+
+
+S = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+S_reversed = S[::-1]
+print(S_reversed)
+
+
+
+
+1.UsingPythoncodetolistNameof5teacher inyourcollegewiththeirsubject.
+
+teachers = [
+    {"name": "Teacher 1", "subject": "Mathematics"},
+    {"name": "Teacher 2", "subject": "Physics"},
+    {"name": "Teacher 3", "subject": "Computer Science"},
+    {"name": "Teacher 4", "subject": "History"},
+    {"name": "Teacher 5", "subject": "English Literature"}
+]
+for teacher in teachers:
+    print(f"Name: {teacher['name']}, Subject: {teacher['subject']}")
+
+
+
+ 2.Uselinsolvecommandinpythontosolvethefollowingsystemof linearequations.
+
+from sympy import symbols, Eq, linsolve
+x, y, z = symbols('x y z')
+eq1 = Eq(x - 2*y + 3*z, 7)
+eq2 = Eq(2*x + y + z, 4)
+eq3 = Eq(-3*x + 2*y - 2*z, -10)
+solution = linsolve([eq1, eq2, eq3], (x, y, z))
+print("Solution to the system of equations:")
+print(solution)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+Q.1.Attemptanytwoofthefollowing. [10]
+ 1.UsePythoncodetofindminimumvaluefromthegivennumbers
+ 16,3,5,48,2,4,5,6,78,12,5,6,24
+
+numbers = [16, 3, 5, 48, 2, 4, 5, 6, 78, 12, 5, 6, 24]
+min_value = min(numbers)
+print("Minimum value:", min_value)
+
+
+
+ 2.UsePythoncodetofindhypotenuseoftrianglewhosesidesare12and5.
+    
+    side1 = 12
+side2 = 5
+hypotenuse = math.sqrt(side1*2 + side2*2)
+print("Hypotenuse of the triangle:", hypotenuse)
+
+
+
+ 3.UsePythoncodetoremovealldigitsafterdecimalofthegivenNumber125312.3142
+    
+    
+    umber = 125312.3142
+number_without_decimal = int(number)
+print("Number without decimal:", number_without_decimal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

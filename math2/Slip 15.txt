@@ -1,0 +1,108 @@
+ Q.1. Attempt any twoof the following. [10]
+ 1. Using for loop on Python, find range from 1 to 11 integers
+
+
+for i in range(1, 12): 
+    print(i)
+
+
+
+2.Use Python code to find,
+
+
+import math
+sin_75 = math.sin(math.radians(75))
+print(f"(a) sin(75 degrees) = {sin_75}")
+pi_over_2 = math.pi / 2
+print(f"(b) π/2 = {pi_over_2}")
+euler_number = math.e
+print(f"(c) e (Euler's number) = {euler_number}")
+cos_56 = math.cos(math.radians(56))
+print(f"(d) cos(56 degrees) = {cos_56}")
+
+
+
+
+
+Q.2. Attempt any twoof the following.
+ 1. Using Python code construct any three matrices A,B and C to show that
+ (A+B)+C=A+(B+C)
+
+
+
+
+import numpy as np
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+C = np.array([[9, 10], [11, 12]])
+result1 = (A + B) + C
+result2 = A + (B + C)
+if np.array_equal(result1, result2):
+    print("(A + B) + C is equal to A + (B + C):")
+    print(result1)
+else:
+    print("(A + B) + C is not equal to A + (B + C)")
+
+
+
+ 3. Generate all prime numbers between 1000 to 2000 using Python program.
+    
+    def is_prime(n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+start = 1000
+end = 2000
+prime_numbers = [x for x in range(start, end + 1) if is_prime(x)]
+print("Prime numbers between 1000 and 2000:")
+print(prime_numbers)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

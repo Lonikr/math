@@ -1,0 +1,85 @@
+ Q.1
+    2. Use Python code to find area and circumference of square whose length is 5
+    
+    side_length = 5
+area = side_length ** 2
+circumference = 4 * side_length
+print("Area of the square:", area)
+print("Circumference of the square:", circumference)
+
+
+
+ 3. Write Python program to generate the square number from 1 to 10
+    
+    
+    square_numbers = []
+for i in range(1, 11):
+    square = i ** 2
+    square_numbers.append(square)
+print("Square numbers from 1 to 10:", square_numbers)
+
+
+ Q.2. Attempt any twoof the following.
+ 1. Write Python code to reverse the string S=[1,2,3,4,5,6,7,8,9]
+
+
+
+S = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+reversed_S = S[::-1]
+print("Reversed list:", reversed_S)
+
+
+
+ 2. Write Python program to find f(x) = x2 +3x, Where (−1 ≤ x ≤ 3).
+    
+    x_values = range(-1, 4)  
+for x in x_values:
+    fx = x**2 + 3*x
+
+    print(f"f({x}) = {fx}")
+
+
+
+
+ 2. Write Python program to find f(x) = x2 +3x, Where (−1 ≤ x ≤ 3).
+    
+    x_values = range(-1, 4)  
+for x in x_values:
+    fx = x**2 + 3*x
+
+    print(f"f({x}) = {fx}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

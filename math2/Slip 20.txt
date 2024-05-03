@@ -1,0 +1,77 @@
+1.WritePythoncodetoprintfirstnnaturalnumbersandtheirsquarerootsof input integern.
+    
+    import math
+n = int(input("Enter a positive integer n: "))
+if n <= 0:
+    print("Please enter a positive integer:")
+else:
+    print("Natural Number | Square Root")
+    print("-"*30)
+for i in range(1, n + 1):
+   square_root = math.sqrt(i)
+print(f"(i) (square_root:.4f)")
+
+
+
+
+2.UsePythoncodetofindsumofsquareoffirsttwentyfivenaturalnumbers
+
+n=25
+sum_of_squares=(n*(n+1)*(2*n+1))/6
+print("The sum of the squares of the first {n} natueal numbers is:{sum_of _squares}")
+
+
+
+
+ 1.Writepythoncodetodisplaytuple‘IamIndian’ andthesecondletterinthistuple
+    
+    my_tuple=('I am indian',)
+second_letter=my_tuple[0][1]
+print("tuple",my_tuple[0])
+
+print("second letter:",second_letter)
+
+
+
+3.WritePythonprogramtodiagonalizethematrix
+
+
+import numpy as np
+A=np.array([[3,-2],[6,-4]])
+eigenvalues, eigenvectors = np.linalg.eig(A)
+eigenvalue1, eigenvalue2 = eigenvalues
+eigenvector1, eigenvector2 = eigenvectors.T
+P = np.column_stack((eigenvector1, eigenvector2))
+D = np.diag(eigenvalues)
+print("Matrix A:")
+print(A)
+print("\nEigenvalues:")
+print(D)
+print("\nMatrix P:")
+print(P)
+
+
+
+ Q.3. a.Attemptanyoneofthefollowing. [7]
+ 1.WritePythonprogramtoestimatethevalueoftheintegral 3 1 cos(x)dxusingSimpson’s(3 8)thrule(n=6)
+
+
+
+import math
+def f(x):
+    return math.cos(x)
+    a = 1  
+    b = 3  
+    n = 6
+    h = (b - a) / n
+    result=f(a)+f(b)
+for i in range(2, n, 2):
+    result+=2*f(a+i*h)
+for i in range(1,n,2):
+    result+=3*f(a+i*h)
+    result=(3*h/8)*result
+print(f"The estimated value of the integral ∫[1, 3] cos(x) dx using Simpson's 3/8 rule (n=6) is: {result:.6f}")
+
+
+
+

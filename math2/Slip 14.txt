@@ -1,0 +1,106 @@
+Q.1.Attemptanytwoofthefollowing. [10]
+ 1.UseprintcodeonPython(a=4,b=6,c=8,d=12).
+    
+    
+    
+    a = 4
+b = 6
+c = 8
+d = 12
+print(a + c)
+print(a * b)
+print(c ** d)
+print(a / b)
+result = 3 + (9 - 2) / 7 * 2 ** 2
+print(result)
+
+
+ 2. Forthefollowingtwostatementsuse‘+’stringoperationonPython
+    
+    
+    
+    string1 = "Hello, "
+string2 = "World!"
+result = string1 + string2
+print(result)
+string1 = "Good, "
+string2 = "Morning"
+result = string1 + string2
+print(result)
+
+
+
+ Q.2.Attemptanytwoofthefollowing. [10]
+ 1.UsingPythoncodeconstructanytwomatricesAandB
+
+import numpy as np
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+B = np.array([[9, 8, 7],
+              [6, 5, 4],
+              [3, 2, 1]])
+
+result1 = A + B
+result2 = B + A
+if np.array_equal(result1, result2):
+    print("A + B is equal to B + A:")
+    print(result1)
+result3 = A - B
+print("A - B:")
+print(result3)
+
+
+ 2.WritePythonprogramtofindthesequenceof functionf(x)=x+5,(−5≤x≤5
+                                                           
+x_values = range(-5, 6)
+def f(x):
+    return x + 5
+for x in x_values:
+    result = f(x)
+    print(f"f({x}) = {result}")
+                                           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

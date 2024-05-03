@@ -1,0 +1,107 @@
+ 2.UsingPythonprogram
+ List1=[5,10,15,20,25,30]andList2=[7,14,21,28,35,42]
+ Evaluat
+    
+    
+    
+    List1 = [5, 10, 15, 20, 25, 30]
+List2 = [7, 14, 21, 28, 35, 42]
+result_a = List1 + List2
+result_b = [7 * x for x in List1]
+result_c = [11 * x for x in List2]
+print("(a) List1 + List2:", result_a)
+print("(b) 7*List1:", result_b)
+print("(c) 11*List2:", result_c)
+
+
+ 3.WritePythonprogramtofindtheareaandcircumferenceofacircle(r=5)
+    
+    import math
+radius = 5
+area = math.pi * (radius ** 2)
+circumference = 2 * math.pi * radius
+print(f"Radius of the circle: {radius}")
+print(f"Area of the circle: {area:.2f}")
+print(f"Circumference of the circle: {circumference:.2f}")
+
+
+Q.2.Attemptanytwoofthefollowing. [10]
+ 1.UsingPythoncode,findpercentageofmarks70,80,55,78,65infivesubjectoutof
+ 100each
+
+marks = [70, 80, 55, 78, 65]
+max_marks = 100
+total_marks = sum(marks)
+percentage = (total_marks / (len(marks) * max_marks)) * 100
+print(f"The percentage of marks is: {percentage:.2f}%")
+
+
+
+
+
+ 2.Usingsympymoduleofpython,findthefollowingtermsofvectorx=[1,-5,0]and
+ y=[2,3,-1]
+
+import sympy
+x = sympy.Matrix([1, -5, 0])
+y = sympy.Matrix([2, 3, -1])
+result_a = 5 * x
+result_b = x + y
+result_c = x - 3 * y
+print("(a) 5x:", result_a)
+print("(b) x + y:", result_b)
+print("(c) x - 3y:", result_c)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
